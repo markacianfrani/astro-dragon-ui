@@ -92,6 +92,11 @@ module.exports = {
           800: "#572108",
           900: "#2b1105",
         },
+        critical: {
+          400: "var(--color-status-critical-400)",
+          500: "var(--color-status-critical-500)"
+
+        }
       },
     },
   },

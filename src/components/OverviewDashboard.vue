@@ -58,33 +58,52 @@
     </div>
     <div class="secondary-stats mt-10 flex justify-center">
       <div>
-        <rux-monitoring-progress-icon
-          label="Loop A"
-        ></rux-monitoring-progress-icon>
-        <rux-monitoring-progress-icon
-          label="Loop B"
-        ></rux-monitoring-progress-icon>
-        <div class="mt-4 px-12">
-          <div class="text-2xl border-b pb-6">Connections</div>
+        <div>
+          
+          <rux-monitoring-progress-icon
+            style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
+            label="Loop A"
+          ></rux-monitoring-progress-icon>
+          <rux-monitoring-progress-icon
+            label="Loop B"
+          ></rux-monitoring-progress-icon>
+        </div>
+        <div class="mt-10 px-12">
+          <div
+            class="
+            uppercase
+              text-2xl text-primary-200
+              border-b border-primary-200
+              pb-6
+            "
+          >
+            Connections
+          </div>
           <ul>
-            <li class="flex my-4 pr-2">
-              <span>Manual Rigs</span><span class="ml-auto">Connected</span>
+            <li class="flex my-4 pr-1">
+              <span class="text-primary-200">Manual Rigs</span
+              ><span class="ml-auto font-bold uppercase">Connected</span>
             </li>
-            <li class="flex my-4 pr-2">
-              <span>Manual Rigs</span><span class="ml-auto">Connected</span>
+            <li class="flex my-4 pr-1">
+              <span class="text-primary-200">Changelog</span
+              ><span class="ml-auto font-bold uppercase">Connected</span>
             </li>
-            <li class="flex my-4 pr-2">
-              <span>Manual Rigs</span><span class="ml-auto">Connected</span>
+            <li class="flex my-4 pr-1">
+              <span class="text-primary-200">Airlock</span
+              ><span class="ml-auto font-bold uppercase">Connected</span>
             </li>
-            <li class="flex my-4 pr-2">
-              <span>Manual Rigs</span><span class="ml-auto">Connected</span>
+            <li class="flex my-4 pr-1">
+              <span class="text-primary-200">Wing</span
+              ><span class="ml-auto font-bold uppercase">Connected</span>
             </li>
-            
           </ul>
         </div>
       </div>
 
-      <img alt="Vue logo" src="../assets/model.svg" />
+      <div class="text-center uppercase">
+        <img alt="Vue logo" src="../assets/model.svg" />
+        Cabin Mics: <span class="text-critical-500">Recording</span>
+      </div>
 
       <div>
         <rux-monitoring-progress-icon
