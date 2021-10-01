@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
     <LeftPane class="w-1/3"></LeftPane>
-    <OverviewDashboard class="w-1/3"></OverviewDashboard>
+    <OverviewDashboard class=" w-2/3"></OverviewDashboard>
     <RightPane class="w-1/3"></RightPane>
   </div>
 </template>
