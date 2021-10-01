@@ -3,7 +3,6 @@
     <div class="primary-stats flex items-center justify-center">
       <div
         class="relative p-2 flex align-center mr-4"
-        style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
         v-for="(primaryStat, index) in primaryStats"
         :key="index"
       >
@@ -25,7 +24,6 @@
         <rux-monitoring-progress-icon
           v-for="(stat, index) in secondaryStatsLeft"
           :key="index"
-          style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
           :label="stat.label"
           :progress="stat.progress"
         >
@@ -37,7 +35,6 @@
         <rux-monitoring-progress-icon
           v-for="(stat, index) in secondaryStatsRight"
           :key="index"
-          style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
           :label="stat.label"
           :progress="stat.progress"
         >

@@ -129,8 +129,8 @@ export default {
       return this.selected === itemName;
     },
     setSelected(itemName) {
-	    this.selected = itemName
-    }
+      this.selected = itemName;
+    },
   },
 };
 </script>
