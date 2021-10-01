@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-full justify-center">
+  <div class="flex flex-col h-full justify-start">
     <div class="primary-stats flex items-center justify-center">
       <div
         class="relative p-2 flex align-center mr-4"
@@ -20,22 +20,40 @@
         </rux-monitoring-progress-icon>
       </div>
     </div>
-    <div class="secondary-stats mt-10 flex justify-evenly">
-      <div>
-        <div class="flex justify-evenly">
-          <rux-monitoring-progress-icon
-            v-for="(stat, index) in secondaryStatsLeft"
-            :key="index"
-            style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
-            :label="stat.label"
-            :progress="stat.progress"
-          >
-            <div class="text-xl flex flex-col" slot="progress-status">
-              <div>{{ stat.value }} {{ stat.unit }}</div>
-            </div>
-          </rux-monitoring-progress-icon>
-        </div>
-        <div class="mt-10 px-12">
+    <div class="relative">
+      <div class="secondary-stats grid grid-cols-5">
+        <rux-monitoring-progress-icon
+          v-for="(stat, index) in secondaryStatsLeft"
+          :key="index"
+          style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
+          :label="stat.label"
+          :progress="stat.progress"
+        >
+          <div class="text-xl flex flex-col" slot="progress-status">
+            <div>{{ stat.value }} {{ stat.unit }}</div>
+          </div>
+        </rux-monitoring-progress-icon>
+        <div></div>
+        <rux-monitoring-progress-icon
+          v-for="(stat, index) in secondaryStatsRight"
+          :key="index"
+          style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
+          :label="stat.label"
+          :progress="stat.progress"
+        >
+          <div class="text-xl flex flex-col" slot="progress-status">
+            <div>{{ stat.value }} {{ stat.unit }}</div>
+          </div>
+        </rux-monitoring-progress-icon>
+      </div>
+      <div class="rocket-overview text-center uppercase">
+        <img class="w-full h-full" alt="rocket" src="../assets/model.svg" />
+        Cabin Mics: <span class="text-critical-500">Recording</span>
+      </div>
+    </div>
+
+<div class="grid grid-cols-5">
+  <div class="mt-10 w-1/2 m-auto col-span-2  py-8 ">
           <div
             class="
               uppercase
@@ -65,26 +83,15 @@
             </li>
           </ul>
         </div>
-      </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
 
-      <div class="text-center uppercase">
-        <img alt="Vue logo" src="../assets/model.svg" />
-        Cabin Mics: <span class="text-critical-500">Recording</span>
-      </div>
+</div>
 
-      <div>
-        <rux-monitoring-progress-icon
-          v-for="(stat, index) in secondaryStatsRight"
-          :key="index"
-          :label="stat.label"
-          :progress="stat.progress"
-        >
-          <div class="text-xl flex flex-col" slot="progress-status">
-            <div>{{ stat.value }} {{ stat.unit }}</div>
-          </div>
-        </rux-monitoring-progress-icon>
-      </div>
-    </div>
+
+    
   </div>
 </template>
 
@@ -174,5 +181,14 @@ rux-monitoring-progress-icon::part(status) {
 .secondary-stats rux-monitoring-progress-icon::part(icon) {
   width: 8vw;
   height: 8vw;
+}
+.rocket-overview {
+  width: 400px;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
 }
 </style>

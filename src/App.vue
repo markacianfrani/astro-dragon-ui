@@ -3,9 +3,9 @@
     <div class="text-3xl uppercase text-white p-8 text-center">
       Vehicle Overview
     </div>
-    <div class="flex items-center flex-grow p-12">
+    <div class="flex items-center flex-grow px-12">
       <LeftPane class="w-1/6 self-start"></LeftPane>
-      <OverviewDashboard class="w-2/3"></OverviewDashboard>
+      <OverviewDashboard class="w-2/3 mb-30"></OverviewDashboard>
       <RightPane class="w-1/6 self-start"></RightPane>
     </div>
     <TheNavigationBar class="m-auto"></TheNavigationBar>
