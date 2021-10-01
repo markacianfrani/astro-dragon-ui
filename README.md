@@ -1,7 +1,5 @@
-# Vue 3 + Vite
+# Astro Dragon UI
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+An attempt to recreate [SpaceX's Dragon Flight Control Interface](https://www.figma.com/file/Zx9P5s9fcv5n6T7iSKAlvF/SpaceX-Crew-Dragon-Flight-Control-UI-(Community)) using [Astro UXDS web components](https://astrouxds.com).
 
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+Built w/ Tailwind CSS + Vue 
