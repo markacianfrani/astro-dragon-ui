@@ -1,22 +1,25 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
-  <rux-icon icon="apps"></rux-icon>
+  <div class="flex items-center">
+    <LeftPane class="w-1/3"></LeftPane>
+    <OverviewDashboard class="w-1/3"></OverviewDashboard>
+    <RightPane class="w-1/3"></RightPane>
+  </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from "vue";
+import OverviewDashboard from "./components/OverviewDashboard.vue"
+import LeftPane from "./components/LeftPane.vue"
+import RightPane from "./components/RightPane.vue"
+
+
+export default defineComponent({
+  name: "App",
+  components: {
+    OverviewDashboard, LeftPane, RightPane
+  },
+});
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
