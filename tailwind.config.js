@@ -95,7 +95,14 @@ module.exports = {
         critical: {
           400: "var(--color-status-critical-400)",
           500: "var(--color-status-critical-500)"
-
+        }, 
+        normal: {
+          400: 'var(--color-status-normal-400)',
+          500: 'var(--color-status-normal-500)'
+        },
+        serious: {
+          400: 'var(--color-status-serious-400)',
+          500: 'var(--color-status-serious-500)'
         }
       },
     },

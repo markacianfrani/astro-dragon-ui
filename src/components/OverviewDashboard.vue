@@ -1,77 +1,44 @@
 <template>
-  <div class="">
-    <div class="text-3xl uppercase text-white">Vehicle Overview</div>
+  <div class="flex flex-col h-full justify-center">
     <div class="primary-stats flex items-center justify-center">
       <div
         class="relative p-2 flex align-center mr-4"
         style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
+        v-for="(primaryStat, index) in primaryStats"
+        :key="index"
       >
         <rux-monitoring-progress-icon
           class="m-auto"
           min="0"
-          label="psia"
+          :label="primaryStat.label"
           max="100"
-          progress="33"
+          :progress="primaryStat.progress"
         >
-          <div class="flex flex-col" slot="progress-status">
-            <div>2.68</div>
+          <div class="text-3xl flex flex-col" slot="progress-status">
+            <div>{{ primaryStat.value }} {{ primaryStat.unit }}</div>
           </div>
         </rux-monitoring-progress-icon>
       </div>
-
-      <div
-        class="relative p-2 flex align-center mr-4"
-        style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
-      >
-        <rux-monitoring-progress-icon
-          label="Cabin Temp"
-          class="m-auto"
-          min="0"
-          max="100"
-          progress="93"
-        ></rux-monitoring-progress-icon>
-      </div>
-      <div
-        class="relative p-2 flex align-center mr-4"
-        style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
-      >
-        <rux-monitoring-progress-icon
-          label="Cabin Pressure"
-          class="m-auto"
-          min="0"
-          max="100"
-          progress="33"
-        ></rux-monitoring-progress-icon>
-      </div>
-      <div
-        class="relative p-2 flex align-center"
-        style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
-      >
-        <rux-monitoring-progress-icon
-          label="CO2"
-          class="m-auto"
-          min="0"
-          max="100"
-          progress="33"
-        ></rux-monitoring-progress-icon>
-      </div>
     </div>
-    <div class="secondary-stats mt-10 flex justify-center">
+    <div class="secondary-stats mt-10 flex justify-evenly">
       <div>
-        <div>
-          
+        <div class="flex justify-evenly">
           <rux-monitoring-progress-icon
+            v-for="(stat, index) in secondaryStatsLeft"
+            :key="index"
             style="background: rgba(255, 255, 255, 0.02); opacity: 0.7"
-            label="Loop A"
-          ></rux-monitoring-progress-icon>
-          <rux-monitoring-progress-icon
-            label="Loop B"
-          ></rux-monitoring-progress-icon>
+            :label="stat.label"
+            :progress="stat.progress"
+          >
+            <div class="text-xl flex flex-col" slot="progress-status">
+              <div>{{ stat.value }} {{ stat.unit }}</div>
+            </div>
+          </rux-monitoring-progress-icon>
         </div>
         <div class="mt-10 px-12">
           <div
             class="
-            uppercase
+              uppercase
               text-2xl text-primary-200
               border-b border-primary-200
               pb-6
@@ -107,11 +74,15 @@
 
       <div>
         <rux-monitoring-progress-icon
-          label="Net Pwr 1"
-        ></rux-monitoring-progress-icon>
-        <rux-monitoring-progress-icon
-          label="Net Pwr 2"
-        ></rux-monitoring-progress-icon>
+          v-for="(stat, index) in secondaryStatsRight"
+          :key="index"
+          :label="stat.label"
+          :progress="stat.progress"
+        >
+          <div class="text-xl flex flex-col" slot="progress-status">
+            <div>{{ stat.value }} {{ stat.unit }}</div>
+          </div>
+        </rux-monitoring-progress-icon>
       </div>
     </div>
   </div>
@@ -120,6 +91,64 @@
 <script>
 export default {
   name: "OverviewDashboard",
+  data() {
+    return {
+      primaryStats: [
+        {
+          value: 2.69,
+          label: "PPO2",
+          unit: "psia",
+          progress: 20,
+        },
+        {
+          value: 2.41,
+          label: "Cabin Temp",
+          unit: "°C",
+          progress: 5,
+        },
+        {
+          value: 14,
+          label: "Cabin Pressure",
+          unit: "psia",
+          progress: 20,
+        },
+        {
+          value: 0.07,
+          label: "CO2",
+          unit: "mmHg",
+          progress: 35,
+        },
+      ],
+      secondaryStatsLeft: [
+        {
+          value: 26.53,
+          label: "Loop A",
+          unit: "°C",
+          progress: 60,
+        },
+        {
+          value: 20,
+          label: "Loop B",
+          unit: "°C",
+          progress: 50,
+        },
+      ],
+      secondaryStatsRight: [
+        {
+          value: 0.0,
+          label: "Net Pwr 1",
+          unit: "W",
+          progress: 0,
+        },
+        {
+          value: 0.0,
+          label: "Net Pwr 2",
+          unit: "W",
+          progress: 0,
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -138,12 +167,12 @@ rux-monitoring-progress-icon::part(status) {
 }
 
 .primary-stats rux-monitoring-progress-icon::part(icon) {
-  width: 176px;
-  height: 176px;
+  width: 12vw;
+  height: 12vw;
 }
 
 .secondary-stats rux-monitoring-progress-icon::part(icon) {
-  width: 10rem;
-  height: 10rem;
+  width: 8vw;
+  height: 8vw;
 }
 </style>
